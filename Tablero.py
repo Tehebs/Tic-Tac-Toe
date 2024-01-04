@@ -16,7 +16,7 @@ def reset_board():
 
 
 def button_click(row, column):
-    number = row * 3 + column + 1  # Calcular el numero de boton
+    number = row * 3 + column + 1  
     print(f"Button {number} clicked!")
     button = buttons[row][column]
 
@@ -26,22 +26,22 @@ def button_click(row, column):
             print(PVP.tablero)
             # set the button text to X
             button.configure(text="X")
-            root.title("Tic Tac Toe - Turno de la O")
+            root.title("Tic Tac Toe - O's turn")
 
         else:
             PVP.tablero[row][column] = 2
             print(PVP.tablero)
             # set the button text to O
             button.configure(text="O")
-            root.title("Tic Tac Toe - Turno de la X")
+            root.title("Tic Tac Toe - X's turn")
 
         if PVP.checkWinner() != 0:
-            messagebox.showinfo("Ganador", f"El jugador {PVP.checkWinner()} ha ganado")
+            messagebox.showinfo("Winner", f"Player {PVP.checkWinner()} has won!")
             # Clear button texts
             reset_board()
 
         elif PVP.isDraw():
-            messagebox.showinfo("Empate", "Nadie ha ganado")
+            messagebox.showinfo("No winner", "It´s a tie!")
             # Clear button texts
             reset_board()
 
@@ -56,7 +56,7 @@ def button_click(row, column):
 root = tk.Tk()
 
 # set title
-root.title("Tic Tac Toe - Turno de la X")
+root.title("Tic Tac Toe - X's turn")
 
 # Create a 3x3 grid of buttons
 buttons = []
